@@ -35,7 +35,12 @@ sudo python3 setup.py install
 
 ## How CAZy's little helper was built
 
-## Future work
+## The future of CAZy's little helper
+
+- Building a Deep learning model and benchmarking against the classical TF-IDF-SVM machine learning approach. 
+  > LDA &#8594; Word2Vec &#8594; BERT 
+
+- Build an API and deploy the model to facilitate its usage.
 
 ## About
 
