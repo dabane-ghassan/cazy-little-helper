@@ -44,7 +44,7 @@ pip install cazy-little-helper --upgrade
 
 ## How CAZy's little helper was built
 
-- That curious? Welcome 😊, you'll be well satisfied [here](https://github.com/dabane-ghassan/cazy-little-helper/blob/main/results/analysis.md).
+- That curious? Welcome 😊, you'll be well satisfied [here](https://github.com/dabane-ghassan/cazy-little-helper/tree/main/analysis).
 
 ## TODO: The future of CAZy's little helper
 
