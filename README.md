@@ -13,7 +13,7 @@
 
 ## Analysis pipeline
 
-- List of **PMIDs/DOIs** &#8594; **PMCIDs** (if available otherwise leave it as a PMID) &#8594; **Full text** (if available can be scraped with Bilbio otherwise get only the abstract via eutils) &#8594; Text **preprocessing** &#8594; **TF-IDF** &#8594; A calibrated Support Vector Machine **classifier** &#8594; A confidence **score**
+- List of **PMIDs/DOIs** &#8594; **PMCIDs** (if available, otherwise leave it as a PMID) &#8594; **Full text** (if available so can be scraped with Bilbio,  otherwise get only the abstract via eutils) &#8594; Text **preprocessing** &#8594; **TF-IDF** &#8594; A calibrated Support Vector Machine **classifier** &#8594; A confidence **score**.
 
 ## Installation
 
