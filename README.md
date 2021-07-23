@@ -7,8 +7,11 @@
 [![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/reading-6th-grade-level.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/powered-by-black-magic.svg)](https://forthebadge.com)
-
 ![package graphix](images/graphix.png)
+
+> A **model** to predict the **compatibility** of scientific literature with the [CAZy database](http://www.cazy.org/), the endgoal of this model is to ***assist biocurators*** by giving a score of **confidence** for each article to asses its compatibility with certain criteria needed to integrate the database.
+
+## Pipeline
 
 ## Installation
 
@@ -30,10 +33,17 @@ sudo python3 setup.py install
 
 ## Getting started
 
-
 ## How CAZy's little helper was built
 
+## Future work
+
 ## About
+
+> This project was a part of a 2-months internship at the Architecture et Fonction des Macromolécules Biologiques laboratory [(AFMB, Marseille, France)](http://www.afmb.univ-mrs.fr/), hosted within the [Glycogenomics](http://www.afmb.univ-mrs.fr/glycogenomique,39) team.
+
+### Acknowledgements
+
+> First, I would like to start by thanking [Dr. Nicolas Terrapon](http://www.afmb.univ-mrs.fr/Nicolas-Terrapon?lang=fr) for his patience, precious help and invaluable supervision, not to mention the oppurtunity that he gave me to work on such an interesting project. In addition, I would like to deeply thank [Dr. Philippe Ortet](https://www.linkedin.com/in/philippe-ortet-23759a7b/?originalSubdomain=fr) for his precious ideas, wonderful insights and his guidance and expertise that helped me easily navigate and use various complex subjects throughout the projet. Last but not least, I would like to finish by thanking all the Glycogenomics team for their appreciable hospitality.
 
 ### :scroll: License 
 **MIT Licensed** © [Ghassan Dabane](https://github.com/dabane-ghassan), 2021.
