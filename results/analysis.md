@@ -1,6 +1,8 @@
 # The analysis
 
-> *“Above all else, show the data.”* – Edward R. Tufte
+> “Above all else, show the data.”
+> 
+>>-*Edward R. Tufte*
 
 
 | Article source | Number of PMCID articles | Compatibiliy |
@@ -66,6 +68,13 @@ best_lda_model = LatentDirichletAllocation(n_components=10,
 ![image](https://user-images.githubusercontent.com/69251989/126799168-71b4fc21-76d8-419b-8994-04f2b729dfa0.png)
 
 ## TF-IDF/ML Classifier
+
+### The scikit pipeline
+
+```python
+model = Pipeline([("tfidf_vectorization", TfidfVectorizer()),
+                  ("classifier", CalibratedClassifierCV(LinearSVC(C=10)))])
+```
 
 ### ROC
 
