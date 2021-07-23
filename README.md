@@ -7,7 +7,7 @@
 [![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/reading-6th-grade-level.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/powered-by-black-magic.svg)](https://forthebadge.com)
-![package graphix](images/graphix.png)
+![package graphix](graphix.png)
 
 > A **model** to predict the **compatibility** of scientific literature with the [CAZy database](http://www.cazy.org/), the endgoal would be to ***assist biocurators*** by giving a score of **confidence** for each article that asseses its compatibility with certain criteria needed to integrate the database.
 
