@@ -11,7 +11,9 @@
 
 > A **model** to predict the **compatibility** of scientific literature with the [CAZy database](http://www.cazy.org/), the endgoal would be to ***assist biocurators*** by giving a score of **confidence** for each article that asseses its compatibility with certain criteria needed to integrate the database.
 
-## Pipeline
+## Analysis pipeline
+
+- List of **PMIDs** &#8594; **PMCIDs** (if available otherwise leave it as a PMID) &#8594; **Full text** (if available can be scraped with Bilbio otherwise get only the abstract via eutils) &#8594; Text **preprocessing** &#8594; **TF-IDF** &#8594; A calibrated Support Vector Machine **classifier** &#8594; A confidence **score**
 
 ## Installation
 
@@ -30,12 +32,21 @@ git clone https://github.com/dabane-ghassan/cazy-little-helper.git
 cd cazy-little-helper
 sudo python3 setup.py install
 ```
+## Updating
+
+```bash
+pip install cazy-little-helper --upgrade
+```
 
 ## Getting started
 
+- Insert some neat explanations and commands to see how it works.
+
 ## How CAZy's little helper was built
 
-## The future of CAZy's little helper
+- That curious? Welcome 😊, you'll be well satisfied [here](https://github.com/dabane-ghassan/cazy-little-helper/blob/main/results/analysis.md).
+
+## TODO: The future of CAZy's little helper
 
 - Building a Deep learning model and benchmarking against the classical TF-IDF-SVM machine learning approach. 
   > LDA &#8594; Word2Vec &#8594; BERT 
