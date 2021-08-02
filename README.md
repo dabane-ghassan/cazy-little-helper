@@ -42,16 +42,13 @@ pip install cazy-little-helper --upgrade
 
 - Insert some neat explanations and commands to see how it works.
 
-## How CAZy's little helper was built
+## Under the hood: What is CAZy's little helper?
 
-- That curious? Welcome 😊, you'll be well satisfied [here](https://github.com/dabane-ghassan/cazy-little-helper/tree/main/analysis).
+- A panel of Natural Language Processing (NLP) methods for **text classification** were used and tested based upon a custom-created dataset for the CAZy database; methods ranging from classical text representation tools like **TF-IDF** *(Term Frequency - Inverse Document Frequency)* and **word embeddings** *(Word2Vec)* as well as unsupervised topic modeling using **LDA** *(Latent Dirichlet Allocation)*, to even state-of-the-art deep learning approaches like **BERT** *(Bidirectional Encoder Representation from Transformers)*.
 
-## TODO: The future of CAZy's little helper
+- All the above approaches were benchmarked on the validation and the test datasets.
 
-- Building a Deep learning model and benchmarking against the classical TF-IDF-SVM machine learning approach. 
-  > LDA &#8594; Word2Vec &#8594; BERT 
-
-- Build an API and deploy the model to facilitate its usage.
+- More information about the dataset and methods? You're more than welcome to take a bit more extensive look [here](https://github.com/dabane-ghassan/cazy-little-helper/tree/main/analysis).
 
 ## About
 
