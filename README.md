@@ -66,17 +66,17 @@ pip install cazy-little-helper --upgrade
   </tr>
   <tr>
     <th rowspan="3">ROC-AUC curve</th>
-    <td> <h4>TF-IDF/SVM</h4> <img src="https://user-images.githubusercontent.com/69251989/127856420-0391a88f-c5af-4e47-9f14-aba5d6a31e5d.png" width=200></td>
-    <td> <h4>LDA/Random Forest</h4><img src="https://user-images.githubusercontent.com/69251989/127857086-25dde5a4-ad14-4727-8bf8-b251d2d3e4e5.png" width=200></td>
-    <td> <h4>Word2Vec/SVM </h4><img src="https://user-images.githubusercontent.com/69251989/127858122-d64389cc-fc16-4d63-8609-29fb00423cb1.png" width=200></td>
-    <td> <h4>BERT </h4><img src="https://user-images.githubusercontent.com/69251989/127849611-f706f698-e278-421e-90d8-0ad5034b25c2.png" width=200></td>
+    <td> <h4>TF-IDF/SVM</h4> <img src="https://user-images.githubusercontent.com/69251989/127856420-0391a88f-c5af-4e47-9f14-aba5d6a31e5d.png" height=200 width=200></td>
+    <td> <h4>LDA/Random Forest</h4><img src="https://user-images.githubusercontent.com/69251989/127857086-25dde5a4-ad14-4727-8bf8-b251d2d3e4e5.png" height=200 width=200></td>
+    <td> <h4>Word2Vec/SVM </h4><img src="https://user-images.githubusercontent.com/69251989/127858122-d64389cc-fc16-4d63-8609-29fb00423cb1.png" height=200 width=200></td>
+    <td> <h4>BERT </h4><img src="https://user-images.githubusercontent.com/69251989/127849611-f706f698-e278-421e-90d8-0ad5034b25c2.png" height=200 width=200></td>
   </tr>
   <tr>
-    <td><h4>TF-IDF/Random Forest</h4><img src="https://user-images.githubusercontent.com/69251989/127861999-bdc1d3b8-eebd-444b-981a-e8e8c13d7f77.png" width=200></td>
-    <td><h4>Ensemble Classifier*</h4> <img src="https://user-images.githubusercontent.com/69251989/127862376-a7e9e0e0-7a54-4801-9982-6e2d99fc3be3.png" width=200></td>
+    <td><h4>TF-IDF/Random Forest</h4><img src="https://user-images.githubusercontent.com/69251989/127861999-bdc1d3b8-eebd-444b-981a-e8e8c13d7f77.png" height=200  width=200></td>
+    <td><h4>Ensemble Classifier*</h4> <img src="https://user-images.githubusercontent.com/69251989/127862376-a7e9e0e0-7a54-4801-9982-6e2d99fc3be3.png" height=200 width=200></td>
   </tr>
   <tr>
-    <td><h4>TF-IDF/Naive Bayes </h4> <img src="https://user-images.githubusercontent.com/69251989/127862065-3ba00179-037c-41b7-b999-b501c8b720a9.png" width=200></td>
+    <td><h4>TF-IDF/Naive Bayes </h4> <img src="https://user-images.githubusercontent.com/69251989/127862065-3ba00179-037c-41b7-b999-b501c8b720a9.png" height=200  width=200></td>
   </tr>
 </table>
 
