@@ -1,19 +1,10 @@
 numpy
 matplotlib
-sns
 pandas
 sklearn
-torch
-transformers
 metapub
 beautifulsoup4
 gensim
-wordcloud
 nltk
-pyldavis
-tqdm
-bokeh
 joblib
-bibtexparser
-odfpy
 
