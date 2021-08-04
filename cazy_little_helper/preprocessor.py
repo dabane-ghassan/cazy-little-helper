@@ -65,7 +65,7 @@ class Preprocessor:
     def make_ngrams(
             texts: List[List[str]]
     ) -> List[List[str]]:
-    
+
         bigram = gensim.models.Phrases(
             texts, min_count=5,
             threshold=100)
@@ -104,6 +104,6 @@ class Preprocessor:
         return data_words
     
     def pipeline(
-    
+
     ) -> None:
         pass
