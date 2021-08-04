@@ -5,8 +5,9 @@ Created on Fri Jun 25 14:29:16 2021
 
 @author: ghassandabane
 """
-import gensim
 import re
+from gensim.models import Phrases
+from gensim.models.phrases import Phraser
 from nltk.corpus import stopwords
 from nltk.tokenize import RegexpTokenizer
 from nltk.stem import WordNetLemmatizer, PorterStemmer
@@ -15,13 +16,15 @@ from typing import List, Generator
 class Preprocessor:
 
     def __init__(
-            self: object  
+        self: object,
+        docs: List[str]
     ) -> None:
-        pass
+
+        self.docs = docs
 
     @staticmethod
     def clean_doc(
-            doc: str
+        doc: str
     ) -> str:
 
         doc = str(doc).lower()
@@ -36,8 +39,8 @@ class Preprocessor:
 
     @staticmethod
     def tokenize(
-            texts: List[str]
-    ) -> Generator[List[str], None, None] :
+        texts: List[str]
+    ) -> Generator[List[str], None, None]:
 
         for doc in texts:
             cleaned_doc = Preprocessor.clean_doc(doc)
@@ -47,15 +50,15 @@ class Preprocessor:
 
     @staticmethod
     def remove_stopwords(
-            texts: List[List[str]]
+        texts: List[List[str]]
     ) -> List[List[str]]:
-    
+
         stop_words = stopwords.words('english')
         stop_words.extend(
             ['from', 'subject', 're', 'edu', 'use', 'however',
              'et', 'al', 'fig', 'also', 'conflict', 'interest']
             )
-    
+
         return [[
             w for w in doc if len(w) > 3 if w not in stop_words
             if not w.isnumeric()
@@ -63,36 +66,34 @@ class Preprocessor:
 
     @staticmethod
     def make_ngrams(
-            texts: List[List[str]]
+        texts: List[List[str]]
     ) -> List[List[str]]:
 
-        bigram = gensim.models.Phrases(
-            texts, min_count=5,
-            threshold=100)
-        bigram_mod = gensim.models.phrases.Phraser(bigram)
-        trigram = gensim.models.Phrases(bigram[texts], threshold=100)
-        trigram_mod = gensim.models.phrases.Phraser(trigram)
+        bigram = Phrases(texts, min_count=5, threshold=100)
+        bigram_mod = Phraser(bigram)
+        trigram = Phrases(bigram[texts], threshold=100)
+        trigram_mod = Phraser(trigram)
         return [trigram_mod[bigram_mod[doc]] for doc in texts]
 
     @staticmethod
     def stemmer(
-            texts: List[List[str]]
+        texts: List[List[str]]
     ) -> List[List[str]]:
-    
+
         stemmer = PorterStemmer()
         return [[stemmer.stem(w) for w in doc] for doc in texts]
 
     @staticmethod
     def lemmatizer(
-            texts: List[List[str]]
+        texts: List[List[str]]
     ) -> List[List[str]]:
-    
+
         lemmatizer = WordNetLemmatizer()
         return [[lemmatizer.lemmatize(w) for w in doc] for doc in texts]
 
     @staticmethod
     def preprocess(
-            docs: List[str]
+        docs: List[str]
     ) -> List[List[str]]:
 
         data_words_raw = list(Preprocessor.tokenize(docs))
@@ -100,10 +101,10 @@ class Preprocessor:
         data_words_ngrams = Preprocessor.make_ngrams(data_words_no_stop)
         data_words_stemmed = Preprocessor.stemmer(data_words_ngrams)
         data_words = Preprocessor.lemmatizer(data_words_stemmed)
-
         return data_words
 
     def pipeline(
+        self: object
+    ) -> List[List[str]]:
 
-    ) -> None:
-        pass
+        return Preprocessor.preprocess(self.docs)

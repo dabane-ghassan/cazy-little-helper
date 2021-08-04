@@ -23,7 +23,7 @@ class Toolkit:
     
         """
         return ("/" in expr)
-    
+
     @staticmethod
     def is_pmc(expr: str) -> bool:
         """Verifies if a given expression is a PMCID.
@@ -74,7 +74,7 @@ class Toolkit:
     
         """
         pass
-    
+
     @staticmethod
     def all_pmid_to_pmcid(pmid_file: str) -> str:
         """This function transforms all PMIDs in a file to PMCIDs if available,
