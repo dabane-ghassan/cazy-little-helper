@@ -2,9 +2,9 @@ numpy
 matplotlib
 pandas
 sklearn
+requests
 metapub
 beautifulsoup4
 gensim
 nltk
 joblib
-
