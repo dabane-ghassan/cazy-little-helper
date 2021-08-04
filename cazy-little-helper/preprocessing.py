@@ -15,10 +15,11 @@ from typing import List, Generator
 class Preprocessor:
 
     def __init__(
-        self: object  
+            self: object  
     ) -> None:
         pass
 
+    @staticmethod
     def clean_doc(
             doc: str
     ) -> str:
@@ -33,16 +34,18 @@ class Preprocessor:
         rem_num = re.sub(r'^\d+(?:,\d*)?$', '', rem_entrez)
         return rem_num
 
-    def preprocess(
+    @staticmethod
+    def tokenize(
             texts: List[str]
     ) -> Generator[List[str], None, None] :
 
         for doc in texts:
-            cleaned_doc = clean_doc(doc)
+            cleaned_doc = Preprocessor.clean_doc(doc)
             tokenizer = RegexpTokenizer(r'\w+')
             tokens = tokenizer.tokenize(cleaned_doc)
             yield tokens
 
+    @staticmethod
     def remove_stopwords(
             texts: List[List[str]]
     ) -> List[List[str]]:
@@ -57,7 +60,8 @@ class Preprocessor:
             w for w in doc if len(w) > 3 if w not in stop_words
             if not w.isnumeric()
         ] for doc in texts]
-    
+
+    @staticmethod
     def make_ngrams(
             texts: List[List[str]]
     ) -> List[List[str]]:
@@ -69,14 +73,16 @@ class Preprocessor:
         trigram = gensim.models.Phrases(bigram[texts], threshold=100)
         trigram_mod = gensim.models.phrases.Phraser(trigram)
         return [trigram_mod[bigram_mod[doc]] for doc in texts]
-    
+
+    @staticmethod
     def stemmer(
             texts: List[List[str]]
     ) -> List[List[str]]:
     
         stemmer = PorterStemmer()
         return [[stemmer.stem(w) for w in doc] for doc in texts]
-    
+
+    @staticmethod
     def lemmatizer(
             texts: List[List[str]]
     ) -> List[List[str]]:
@@ -84,14 +90,20 @@ class Preprocessor:
         lemmatizer = WordNetLemmatizer()
         return [[lemmatizer.lemmatize(w) for w in doc] for doc in texts]
 
-    def preprocess_pipeline(
+    @staticmethod
+    def preprocess(
             docs: List[str]
     ) -> List[List[str]]:
 
-        data_words_raw = list(preprocess(docs))
-        data_words_no_stop = remove_stopwords(data_words_raw)
-        data_words_ngrams = make_ngrams(data_words_no_stop)
-        data_words_stemmed = stemmer(data_words_ngrams)
-        data_words = lemmatizer(data_words_stemmed)
+        data_words_raw = list(Preprocessor.tokenize(docs))
+        data_words_no_stop = Preprocessor.remove_stopwords(data_words_raw)
+        data_words_ngrams = Preprocessor.make_ngrams(data_words_no_stop)
+        data_words_stemmed = Preprocessor.stemmer(data_words_ngrams)
+        data_words = Preprocessor.lemmatizer(data_words_stemmed)
 
         return data_words
+    
+    def pipeline(
+    
+    ) -> None:
+        pass
