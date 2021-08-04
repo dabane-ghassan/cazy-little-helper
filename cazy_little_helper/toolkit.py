@@ -5,13 +5,20 @@ Some tools to clean and scrape the dataset.
 
 @author: Ghassan
 """
+import os
+import pandas as pd
+from metapub.pubmedcentral import get_pmid_for_otherid
+from metapub.pubmedcentral import get_pmcid_for_otherid
+from metapub.pubmedcentral import get_doi_for_otherid
 
 class Toolkit:
 
     @staticmethod
-    def is_doi(expr: str) -> bool:
+    def is_doi(
+        expr: str
+    ) -> bool:
         """Verifies if a given expression is a DOI link.
-    
+
         Parameters
         ----------
         expr : str
@@ -25,7 +32,9 @@ class Toolkit:
         return ("/" in expr)
 
     @staticmethod
-    def is_pmc(expr: str) -> bool:
+    def is_pmc(
+        expr: str
+    ) -> bool:
         """Verifies if a given expression is a PMCID.
     
         Parameters
@@ -39,11 +48,13 @@ class Toolkit:
     
         """
         return expr.startswith("PMC")
-    
+
     @staticmethod
-    def not_found(expr: str) -> bool:
-        """Verifies if a given expression is not found when trying to find a PMID
-        from a DOI or when trying to find a PMCID from a PMID.
+    def not_found(
+        expr: str
+    ) -> bool:
+        """Verifies if a given expression is not found when trying to find 
+        a PMID from a DOI or when trying to find a PMCID from a PMID.
     
         Parameters
         ----------
@@ -58,37 +69,41 @@ class Toolkit:
         return expr.startswith("N")
 
     @staticmethod
-    def all_doi_to_pmid(file_name: str) -> str:
-        """This function transforms all DOI links in a file to PMID if available,
-        when not available, it will leave the DOI links as they are.
-    
-        Parameters
-        ----------
-        file_name : str
-            The file path.
-    
-        Returns
-        -------
-        str
-            The new file path.
-    
-        """
-        pass
+    def find_ids(
+        ids_file: str,
+        id_type: str
+    ) -> str:
 
-    @staticmethod
-    def all_pmid_to_pmcid(pmid_file: str) -> str:
-        """This function transforms all PMIDs in a file to PMCIDs if available,
-        when not available, it will leave the PMIDs as they are.
-    
-        Parameters
-        ----------
-        file_name : str
-            The file path.
-    
-        Returns
-        -------
-        str
-            The new file path.
-    
-        """
-        pass
+        if id_type == "PMID":
+            finder = get_pmid_for_otherid
+        elif id_type == "DOI":
+            finder = get_doi_for_otherid
+        elif id_type == "PMCID":
+            finder = get_pmcid_for_otherid
+        else:
+            raise Exception("ID type error, please provide one of the \
+                            following three = ['PMID', 'DOI', 'PMCID']")
+
+        ids = pd.read_csv(ids_file, header=None)[0]
+        output = "%s_%s.csv" % (os.path.splitext(ids_file)[0], id_type)
+        pmids = []
+        
+        for idi in ids:
+            try:
+                if pmid := finder(idi):
+                    pmids.append(pmid)
+                else:
+                    pmids.append("not_found")
+            except AttributeError:
+                pmids.append("not_found")
+
+        pd.DataFrame({"id": ids,
+                      "pmid": pd.Series(pmids)
+                    }).to_csv(output, index=False)
+
+        return output
+
+        output = "%s_pmids.csv" % (os.path.splitext(ids_file)[0])
+        
+        
+        return output

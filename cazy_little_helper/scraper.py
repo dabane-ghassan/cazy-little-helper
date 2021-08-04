@@ -24,7 +24,7 @@ class Scraper:
             The output dataset file path.
         pmcids : List[str]
             The list of PMCIDs.
-    
+
         Returns
         -------
         str
@@ -55,7 +55,7 @@ class Scraper:
                     print("problem with article PMC%s"%(pmcidi))
                     pass
         return output
-    
+
     @staticmethod
     def fetch_abstracts(text_docs: str, pmids: List[str]) -> str:
         """A function to fetch abstracts from a list of PMIDs after the scraping
