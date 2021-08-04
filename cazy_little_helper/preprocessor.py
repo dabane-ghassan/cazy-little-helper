@@ -102,7 +102,7 @@ class Preprocessor:
         data_words = Preprocessor.lemmatizer(data_words_stemmed)
 
         return data_words
-    
+
     def pipeline(
 
     ) -> None:
