@@ -22,8 +22,10 @@ def launch_pipeline(
 def create_parser(
 ) -> argparse.ArgumentParser:
     
-    describe= "Welcome to CAZy's little helper ▼(´ᴥ`)▼! \n \
-        the biocuration assistant of the CAZy database, woof woof."
+    describe= "Welcome to CAZy's little helper ▼(´ᴥ`)▼ ! \n \
+        The biocuration assistant of the CAZy database, woof woof.\
+        Please visit https://github.com/dabane-ghassan/cazy-little-helper \
+        for more information about the package."
 
     parser = argparse.ArgumentParser(add_help=True,
                                      description=describe)
