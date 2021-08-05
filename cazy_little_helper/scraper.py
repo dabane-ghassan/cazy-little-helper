@@ -5,6 +5,7 @@ Created on Wed Aug  4 10:50:22 2021
 
 @author: ghassan
 """
+import os
 import time
 import csv
 import requests
@@ -14,27 +15,51 @@ from typing import List
 
 class Scraper:
 
-    @staticmethod        
-    def scrape(output: str, pmcids: List[str]) -> str:
-        """A function to scrape full articles with PMCIDs.
+    def __init__(
+        self: object,
+        ids_dataset: List[str],
+        biblio_address: str
+    ) -> None:
+        """Class constructor.
+
+        Parameters
+        ----------
+        ids : List[str]
+            DESCRIPTION.
+        biblio_address : str
+            DESCRIPTION.
+
+        Returns
+        -------
+        None
+            DESCRIPTION.
+
+        """
+        self.text_dataset = "%s_text.csv" %(os.path.splitext(ids_dataset)[0])
+        self.bibio_address = biblio_address
+
+    def scrape(
+        self: object,
+        pmcids: List[str]
+    ) -> None:
+        """A Method to scrape full articles with PMCIDs using the biblio 
+        package.
     
         Parameters
         ----------
-        output : str
-            The output dataset file path.
         pmcids : List[str]
             The list of PMCIDs.
 
         Returns
         -------
-        str
-            The output dataset file path.
+        None
+            Scrapes full-text PMC article to the text_dataset.
         """
-        ### Biblio package
-        biblio = "http://localhost/Biblio/utils/fromPMCID/fromPMCID.php?PMCID=%s&print&content&title"
-    
-        with open(output, "w") as new_file:
-    
+        biblio = self.biblio_address + \
+            "/utils/fromPMCID/fromPMCID.php?PMCID=%s&print&content&title"
+
+        with open(self.text_dataset, "w") as new_file:
+
             writer = csv.writer(new_file)
             writer.writerow(["id", "title", "only_abstract", "text"])
             for pmcid in pmcids:
@@ -54,33 +79,31 @@ class Scraper:
                 except IndexError:
                     print("problem with article PMC%s"%(pmcidi))
                     pass
-        return output
 
-    @staticmethod
-    def fetch_abstracts(text_docs: str, pmids: List[str]) -> str:
-        """A function to fetch abstracts from a list of PMIDs after the scraping
-        function has finished.
+    def fetch_abstracts(
+        self: object,
+        pmids: List[str]
+    ) -> None:
+        """A method to fetch abstracts from a list of PMIDs after the 
+        scraping function has finished. Predictions based on abstracts will 
+        be less fiable but better than nothing at all.
     
         Parameters
         ----------
-        text_docs : str
-            The scraped PMCIDs dataset file path.
         pmids : List[str]
             The list of PMIDs to scrape, PMIDs with no associated PMCIDs.
     
         Returns
         -------
-        str
-            The dataset file path.
+        None
+            Fetches abstracts to the text dataset after the scrape method.
         """
-        fetch = PubMedFetcher()    
-        with open(text_docs, "a") as f:
+        fetcher = PubMedFetcher()    
+        with open(self.text_dataset, "a") as f:
             writer = csv.writer(f)
             for pmid in pmids:
                 only_abstract = True
-                text = fetch.article_by_pmid(pmid).abstract
-                title = fetch.article_by_pmid(pmid).title
+                text = fetcher.article_by_pmid(pmid).abstract
+                title = fetcher.article_by_pmid(pmid).title
                 writer.writerow([pmid, title, only_abstract, text])
                 time.sleep(3)
-    
-        return text_docs
