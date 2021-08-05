@@ -102,8 +102,3 @@ class Toolkit:
                     }).to_csv(output, index=False)
 
         return output
-
-        output = "%s_pmids.csv" % (os.path.splitext(ids_file)[0])
-        
-        
-        return output
