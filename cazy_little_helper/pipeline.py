@@ -6,7 +6,6 @@ Created on Wed Aug  4 10:54:33 2021
 @author: ghassan
 """
 from __future__ import absolute_import
-from typing import Optional
 import os
 import numpy as np
 import pandas as pd
@@ -21,8 +20,8 @@ class Pipeline:
     def __init__(
         self: object,
         input_data: str,
-        id_pos: Optional[int]=0,
-        biblio_address: Optional[str]="http://localhost/Biblio"
+        id_pos: int,
+        biblio_address: str
     ) -> None:
 
         self.input_data = input_data

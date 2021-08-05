@@ -9,7 +9,6 @@ from __future__ import absolute_import
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-#from preprocessor import preprocess_pipeline
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 
