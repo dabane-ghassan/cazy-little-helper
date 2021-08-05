@@ -5,6 +5,7 @@ Some tools to clean and scrape the dataset.
 
 @author: Ghassan
 """
+from __future__ import absolute_import
 import os
 import pandas as pd
 from metapub.pubmedcentral import get_pmid_for_otherid
@@ -23,29 +24,29 @@ class Toolkit:
         ----------
         expr : str
             The expression to be verified.
-    
+
         Returns
         -------
         bool
-    
+
         """
-        return ("/" in expr)
+        return "/" in expr
 
     @staticmethod
     def is_pmc(
         expr: str
     ) -> bool:
         """Verifies if a given expression is a PMCID.
-    
+
         Parameters
         ----------
         expr : str
             The expression to be verified.
-    
+
         Returns
         -------
         bool
-    
+
         """
         return expr.startswith("PMC")
 
@@ -53,18 +54,18 @@ class Toolkit:
     def not_found(
         expr: str
     ) -> bool:
-        """Verifies if a given expression is not found when trying to find 
+        """Verifies if a given expression is not found when trying to find
         a PMID from a DOI or when trying to find a PMCID from a PMID.
-    
+
         Parameters
         ----------
         expr : str
             The expression to be verified.
-    
+
         Returns
         -------
         bool
-    
+
         """
         return expr.startswith("N")
 
@@ -87,7 +88,7 @@ class Toolkit:
         ids = pd.read_csv(ids_file, header=None)[0]
         output = "%s_%s.csv" % (os.path.splitext(ids_file)[0], id_type)
         pmids = []
-        
+
         for idi in ids:
             try:
                 if pmid := finder(idi):

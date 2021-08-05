@@ -5,21 +5,21 @@ Created on Fri Jun 25 14:29:16 2021
 
 @author: ghassandabane
 """
+from __future__ import absolute_import
 import re
 from gensim.models import Phrases
 from gensim.models.phrases import Phraser
 from nltk.corpus import stopwords
 from nltk.tokenize import RegexpTokenizer
 from nltk.stem import WordNetLemmatizer, PorterStemmer
-from typing import List, Generator
+from typing import List, Generator, Optional
 
 class Preprocessor:
 
     def __init__(
         self: object,
-        docs: List[str]
+        docs: Optional[List[str]]=None
     ) -> None:
-
         self.docs = docs
 
     @staticmethod
