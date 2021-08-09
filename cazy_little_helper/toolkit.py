@@ -99,7 +99,7 @@ class Toolkit:
                 pmids.append("not_found")
 
         pd.DataFrame({"id": ids,
-                      "pmid": pd.Series(pmids)
+                      id_type: pd.Series(pmids)
                     }).to_csv(output, index=False)
 
         return output

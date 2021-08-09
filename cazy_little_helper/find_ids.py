@@ -9,14 +9,14 @@ Created on Mon Aug  9 10:29:26 2021
 from __future__ import absolute_import
 import sys
 from argparse import ArgumentParser, RawTextHelpFormatter
-from toolkit import find_ids
+from toolkit import Toolkit
 
 def launch_find( 
     ids_file: str,
     id_type: str
 ) -> None:
 
-    return find_ids(ids_file, id_type)
+    return Toolkit.find_ids(ids_file, id_type)
 
 def create_parser(
 ) -> ArgumentParser:
@@ -24,7 +24,7 @@ def create_parser(
     describe= "Welcome to CAZy's little helper ▼(´ᴥ`)▼ !\n\
 The biocuration assistant of the CAZy database, woof woof.\n\
 This special functionality takes a list of articles IDs and tries to find \
-another corresponding type of ID. Workes best if we have a list of mixed \
+another corresponding type of ID. Works best if we have a list of mixed \
 IDs and we want to find the corresponding PMIDs in order to run the main \
 CAZy's little helper prediction pipeline, but can be used to find any other \
 type of ids.\n\
