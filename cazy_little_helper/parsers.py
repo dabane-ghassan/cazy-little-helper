@@ -21,11 +21,11 @@ CAZy's little helper takes a .csv file that contains a list of PMIDS and \
 spits out another file with a confidence score for the given articles.\n\
 Please visit https://github.com/dabane-ghassan/cazy-little-helper \
 for more information about the package."
-    
+
         parser = ArgumentParser(add_help=True,
                                          description=describe,
                                          formatter_class=RawTextHelpFormatter)
-    
+
         parser.add_argument('-i','--input_path',
                             type=str,
                             required=True,
@@ -90,7 +90,7 @@ a .csv file with a column of article IDs")
 ['PMID', 'PMCID', 'DOI'], uppercase only")
 
         return parser
-    
+
     @staticmethod
     def create_model(
     ) -> ArgumentParser:
@@ -129,8 +129,7 @@ a two column .csv file.")
                             default="http://localhost/Biblio",
                             help="[OPTIONAL] The address of the biblio package \
 on the php server, default is http://localhost/Biblio")
-    
-    
+
         parser.add_argument('-s','--val_size',
                             type=str,
                             required=False,
