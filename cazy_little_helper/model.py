@@ -48,7 +48,7 @@ class Model:
     ) -> List[str]:
 
         return self.__X_train
-    
+
     @X_train.setter
     def X_train(
         self: object,
