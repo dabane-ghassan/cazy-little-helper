@@ -46,6 +46,14 @@ class Parser:
                             default="http://localhost/Biblio",
                             help="[OPTIONAL] The address of the biblio package \
     on the php server, default is http://localhost/Biblio")
+    
+        parser.add_argument('-m','--model',
+                                type=str,
+                                required=False,
+                                default="../model/cazy_helper.joblib",
+                                help="[OPTIONAL] The model path to run the \
+    predictions, default is the CAZy's little helper already trained model \
+    based on Aug 2021 data, '../model/cazy_helper.joblib'")
 
         return parser
 

@@ -13,8 +13,8 @@ class Scorer:
 
     def __init__(
         self: object,
+        model: str,
         docs: Optional[List[str]]=None,
-        model: Optional[str]="../model/cazy_helper.joblib",
     ) -> None:
 
         self.model = load(model)

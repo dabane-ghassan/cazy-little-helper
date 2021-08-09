@@ -21,7 +21,8 @@ class Pipeline:
         self: object,
         input_data: str,
         id_pos: int,
-        biblio_address: str
+        biblio_address: str,
+        model: str,
     ) -> None:
 
         self.input_data = input_data
@@ -30,7 +31,7 @@ class Pipeline:
             self.input_data)[0])
         self.scraper = Scraper(self.input_data, biblio_address)
         self.preprocessor = Preprocessor()
-        self.scorer = Scorer()
+        self.scorer = Scorer(model)
 
     def run(
         self: object
