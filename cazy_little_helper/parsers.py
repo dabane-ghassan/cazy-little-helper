@@ -32,7 +32,7 @@ class Parser:
                             default=sys.stdin,
                             help="[REQUIRED] The input data file path,\
     a .csv file with a column of article IDs")
-    
+
         parser.add_argument('-p','--id_pos',
                             type=int,
                             required=False,
@@ -46,7 +46,7 @@ class Parser:
                             default="http://localhost/Biblio",
                             help="[OPTIONAL] The address of the biblio package \
     on the php server, default is http://localhost/Biblio")
-    
+
         parser.add_argument('-m','--model',
                                 type=str,
                                 required=False,
@@ -60,7 +60,7 @@ class Parser:
     @staticmethod
     def find_ids(
     ) -> ArgumentParser:
-    
+
         describe= "Welcome to CAZy's little helper ▼(´ᴥ`)▼ !\n\
     The biocuration assistant of the CAZy database, woof woof.\n\
     This special functionality takes a list of articles IDs and tries to find \
