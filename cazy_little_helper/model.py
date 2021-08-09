@@ -84,8 +84,7 @@ class Model:
 
         print("The model was saved to %s" % (dump(self.architecture,
                                                   self.path)[0]))
-        
-        
+
     @classmethod
     def create_model(
         cls: object,
@@ -95,5 +94,9 @@ class Model:
         val_size: float
     ) -> object:
 
-        return cls(path, dataset, biblio_address, val_size).dataset_prep(
-            ).fit().performance().save()
+        model = cls(path, dataset, biblio_address, val_size)
+        model.dataset_prep()
+        model.fit()
+        model.performance()
+        model.save()
+        return model

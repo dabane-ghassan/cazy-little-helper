@@ -16,11 +16,11 @@ class Parser:
     ) -> ArgumentParser:
 
         describe= "Welcome to CAZy's little helper ▼(´ᴥ`)▼ !\n\
-    The biocuration assistant of the CAZy database, woof woof.\n\
-    CAZy's little helper takes a .csv file that contains a list of PMIDS and \
-    spits out another file with a confidence score for the given articles.\n\
-    Please visit https://github.com/dabane-ghassan/cazy-little-helper \
-    for more information about the package."
+The biocuration assistant of the CAZy database, woof woof.\n\
+CAZy's little helper takes a .csv file that contains a list of PMIDS and \
+spits out another file with a confidence score for the given articles.\n\
+Please visit https://github.com/dabane-ghassan/cazy-little-helper \
+for more information about the package."
     
         parser = ArgumentParser(add_help=True,
                                          description=describe,
@@ -31,29 +31,29 @@ class Parser:
                             required=True,
                             default=sys.stdin,
                             help="[REQUIRED] The input data file path,\
-    a .csv file with a column of article IDs")
+a .csv file with a column of article IDs")
 
         parser.add_argument('-p','--id_pos',
                             type=int,
                             required=False,
                             default=0,
                             help="[OPTIONAL] The index of the ID column in the \
-    input file path, default is 0 (first column).")
+input file path, default is 0 (first column).")
 
         parser.add_argument('-b','--biblio_add',
                             type=str,
                             required=False,
                             default="http://localhost/Biblio",
                             help="[OPTIONAL] The address of the biblio package \
-    on the php server, default is http://localhost/Biblio")
+on the php server, default is http://localhost/Biblio")
 
         parser.add_argument('-m','--model',
                                 type=str,
                                 required=False,
                                 default="../model/cazy_helper.joblib",
                                 help="[OPTIONAL] The model path to run the \
-    predictions, default is the CAZy's little helper already trained model \
-    based on Aug 2021 data, '../model/cazy_helper.joblib'")
+predictions, default is the CAZy's little helper already trained model \
+based on Aug 2021 data, '../model/cazy_helper.joblib'")
 
         return parser
 
@@ -62,14 +62,14 @@ class Parser:
     ) -> ArgumentParser:
 
         describe= "Welcome to CAZy's little helper ▼(´ᴥ`)▼ !\n\
-    The biocuration assistant of the CAZy database, woof woof.\n\
-    This special functionality takes a list of articles IDs and tries to find \
-    another corresponding type of ID. Works best if we have a list of mixed \
-    IDs and we want to find the corresponding PMIDs in order to run the main \
-    CAZy's little helper prediction pipeline, but can be used to find any other \
-    type of ids.\n\
-    Please visit https://github.com/dabane-ghassan/cazy-little-helper \
-    for more information about the package."
+The biocuration assistant of the CAZy database, woof woof.\n\
+This special functionality takes a list of articles IDs and tries to find \
+another corresponding type of ID. Works best if we have a list of mixed \
+IDs and we want to find the corresponding PMIDs in order to run the main \
+CAZy's little helper prediction pipeline, but can be used to find any other \
+type of ids.\n\
+Please visit https://github.com/dabane-ghassan/cazy-little-helper \
+for more information about the package."
 
         parser = ArgumentParser(add_help=True,
                                          description=describe,
@@ -80,14 +80,14 @@ class Parser:
                             required=True,
                             default=sys.stdin,
                             help="[REQUIRED] The input ID file path, \
-    a .csv file with a column of article IDs")
+a .csv file with a column of article IDs")
 
         parser.add_argument('-t','--id_type',
                             type=str,
                             required=False,
                             default=sys.stdin,
                             help="[REQUIRED] The type of ID to find, \
-    ['PMID', 'PMCID', 'DOI'], uppercase only")
+['PMID', 'PMCID', 'DOI'], uppercase only")
 
         return parser
     
@@ -96,14 +96,14 @@ class Parser:
     ) -> ArgumentParser:
 
         describe= "Welcome to CAZy's little helper ▼(´ᴥ`)▼ !\n\
-    The biocuration assistant of the CAZy database, woof woof.\n\
-    This special functionality creates a new model based on the a given\
-    dataset, the input dataset should be a .csv file of two columns,\
-    the 'id' column with only PMCID articles, and the second column 'label'\
-    which specifies if a text should be compatible or not with the predicted\
-    output, 1 for positive, and 0 for negative.\n\
-    Please visit https://github.com/dabane-ghassan/cazy-little-helper \
-    for more information about the package."
+The biocuration assistant of the CAZy database, woof woof.\n\
+This special functionality creates a new model based on a given \
+dataset, the input dataset should be a .csv file of two columns,\
+the 'id' column with only PMCID articles, and the second column 'label' \
+which specifies if a text should be compatible or not with the predicted \
+output, 1 for positive, and 0 for negative.\n\
+Please visit https://github.com/dabane-ghassan/cazy-little-helper \
+for more information about the package."
 
         parser = ArgumentParser(add_help=True,
                                          description=describe,
@@ -114,29 +114,28 @@ class Parser:
                             required=True,
                             default=sys.stdin,
                             help="[REQUIRED] The input ID file path, \
-    a .csv file with a column of article IDs")
+a .csv file with a column of article IDs")
 
         parser.add_argument('-d','--dataset',
                             type=str,
                             required=True,
                             default=sys.stdin,
                             help="[REQUIRED] The training dataset, \
-    a two column .csv file.")
-    
-    
+a two column .csv file.")
+
         parser.add_argument('-b','--biblio_add',
                             type=str,
                             required=False,
                             default="http://localhost/Biblio",
                             help="[OPTIONAL] The address of the biblio package \
-    on the php server, default is http://localhost/Biblio")
+on the php server, default is http://localhost/Biblio")
     
     
         parser.add_argument('-s','--val_size',
                             type=str,
                             required=False,
                             default=0.15,
-                            help="[REQUIRED] The validation dataset size, \
-    default is 0.15")
+                            help="[OPTIONAL] The validation dataset size, \
+default is 0.15")
 
         return parser
