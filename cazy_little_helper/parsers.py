@@ -90,3 +90,53 @@ class Parser:
     ['PMID', 'PMCID', 'DOI'], uppercase only")
 
         return parser
+    
+    @staticmethod
+    def create_model(
+    ) -> ArgumentParser:
+
+        describe= "Welcome to CAZy's little helper ▼(´ᴥ`)▼ !\n\
+    The biocuration assistant of the CAZy database, woof woof.\n\
+    This special functionality creates a new model based on the a given\
+    dataset, the input dataset should be a .csv file of two columns,\
+    the 'id' column with only PMCID articles, and the second column 'label'\
+    which specifies if a text should be compatible or not with the predicted\
+    output, 1 for positive, and 0 for negative.\n\
+    Please visit https://github.com/dabane-ghassan/cazy-little-helper \
+    for more information about the package."
+
+        parser = ArgumentParser(add_help=True,
+                                         description=describe,
+                                         formatter_class=RawTextHelpFormatter)
+
+        parser.add_argument('-p','--output_path',
+                            type=str,
+                            required=True,
+                            default=sys.stdin,
+                            help="[REQUIRED] The input ID file path, \
+    a .csv file with a column of article IDs")
+
+        parser.add_argument('-d','--dataset',
+                            type=str,
+                            required=True,
+                            default=sys.stdin,
+                            help="[REQUIRED] The training dataset, \
+    a two column .csv file.")
+    
+    
+        parser.add_argument('-b','--biblio_add',
+                            type=str,
+                            required=False,
+                            default="http://localhost/Biblio",
+                            help="[OPTIONAL] The address of the biblio package \
+    on the php server, default is http://localhost/Biblio")
+    
+    
+        parser.add_argument('-s','--val_size',
+                            type=str,
+                            required=False,
+                            default=0.15,
+                            help="[REQUIRED] The validation dataset size, \
+    default is 0.15")
+
+        return parser
