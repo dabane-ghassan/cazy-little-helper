@@ -6,6 +6,7 @@ Created on Wed Aug  4 10:39:48 2021
 @author: ghassan
 """
 from __future__ import absolute_import
+from typing import List
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -36,9 +37,70 @@ class Model:
             ("tfidf_vectorization", TfidfVectorizer()),
             ("classifier", CalibratedClassifierCV(LinearSVC(C=10)))
             ])
-
         self.scraper = Scraper(dataset, biblio_address)
         self.processor = Preprocessor()
+        self.__X_train, self.__y_train = None, None
+        self.__X_val, self.__y_val = None, None
+
+    @property
+    def X_train(
+        self: object
+    ) -> List[str]:
+
+        return self.__X_train
+    
+    @X_train.setter
+    def X_train(
+        self: object,
+        param_x_train: List[str]
+    ) -> None:
+
+        self.__X_train = param_x_train
+        
+    @property
+    def y_train(
+        self: object
+    ) -> List[int]:
+
+        return self.__y_train
+    
+    @y_train.setter
+    def y_train(
+        self: object,
+        param_y_train: List[int]
+    ) -> None:
+
+        self.__y_train = param_y_train
+        
+    @property
+    def X_val(
+        self: object
+    ) -> List[str]:
+
+        return self.__X_val
+    
+    @X_val.setter
+    def X_val(
+        self: object,
+        param_x_val: List[str]
+    ) -> None:
+
+        self.__X_val = param_x_val
+
+    @property
+    def y_val(
+        self: object
+    ) -> List[int]:
+
+        return self.__y_val
+    
+    @y_val.setter
+    def y_val(
+        self: object,
+        param_y_val: List[int]
+    ) -> None:
+
+        self.__y_val = param_y_val
 
     def dataset_prep(
         self: object
