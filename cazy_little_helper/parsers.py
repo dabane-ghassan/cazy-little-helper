@@ -84,7 +84,7 @@ a .csv file with a column of article IDs")
 
         parser.add_argument('-t','--id_type',
                             type=str,
-                            required=False,
+                            required=True,
                             default=sys.stdin,
                             help="[REQUIRED] The type of ID to find, \
 ['PMID', 'PMCID', 'DOI'], uppercase only")
@@ -113,8 +113,7 @@ for more information about the package."
                             type=str,
                             required=True,
                             default=sys.stdin,
-                            help="[REQUIRED] The input ID file path, \
-a .csv file with a column of article IDs")
+                            help="[REQUIRED] The save path for the new model.")
 
         parser.add_argument('-d','--dataset',
                             type=str,
