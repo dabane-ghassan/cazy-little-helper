@@ -3,7 +3,7 @@
 """
 A scraper class.
 
-@author: ghassan
+@author: dabane-ghassan
 """
 from __future__ import absolute_import
 from typing import List

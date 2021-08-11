@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Mon Aug  9 14:11:53 2021
+A CLI entry point for the PyPI package, for creating models from scratch 
+functionality.
 
-@author: ghassandabane
+@author: dabane-ghassan
 """
 from __future__ import absolute_import
 from parsers import Parser
@@ -25,8 +26,7 @@ def main(
     args = parser.parse_args()
     args = args.__dict__
     launch_create_model(args["output_path"], args["dataset"],
-                                 args["biblio_add"], args["val_size"])
+                        args["biblio_add"], args["val_size"])
 
 if __name__ == "__main__":
     main()
-

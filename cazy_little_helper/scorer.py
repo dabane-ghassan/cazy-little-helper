@@ -3,7 +3,7 @@
 """
 A Scorer class to make prediction inside an analysis pipeline.
 
-@author: ghassan
+@author: dabane-ghassan
 """
 from __future__ import absolute_import
 from typing import Optional, List

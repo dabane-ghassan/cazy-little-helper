@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Mon Aug  9 10:29:26 2021
+A CLI entry point for the PyPI package, for launching find_ids functionality.
 
-@author: ghassandabane
+@author: dabane-ghassan
 """
 from __future__ import absolute_import
 from parsers import Parser

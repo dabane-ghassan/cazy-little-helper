@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Thu Aug  5 15:44:01 2021
+A CLI entry point for the PyPI package, for making predictions with CAZy's 
+little helper.
 
-@author: ghassandabane
+@author: dabane-ghassan
 """
 from __future__ import absolute_import
 from parsers import Parser
@@ -30,4 +31,3 @@ def main(
 
 if __name__ == "__main__":
     main()
-
