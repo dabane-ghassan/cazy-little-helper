@@ -42,7 +42,7 @@ pip install cazy-little-helper --upgrade
 
 ### Predict
 ```bash
-usage: cazy-little-helper predict [-h] -i INPUT_PATH [-p ID_POS] [-b BIBLIO_ADD] [-m MODEL]
+usage: predict [-h] -i INPUT_PATH [-p ID_POS] [-b BIBLIO_ADD] [-m MODEL]
 
 Arguments:
   -h, --help            show this help message and exit
@@ -59,7 +59,7 @@ Arguments:
 ### Create Model
 
 ```bash
-usage: cazy-little-helper create [-h] -p OUTPUT_PATH -d DATASET [-b BIBLIO_ADD] [-s VAL_SIZE]
+usage: create [-h] -p OUTPUT_PATH -d DATASET [-b BIBLIO_ADD] [-s VAL_SIZE]
 
 Arguments:
   -h, --help            show this help message and exit
@@ -92,7 +92,7 @@ cazy-little-helper create -p new_model.joblib -d classifier_train.csv
 - This last functionality is just *la cerise sur le gâteau*, just input any .csv file with a column of article IDs (PMIDs, PMCIDs or DOIs); preferably a one column .csv file without a header, and it will be converted to the ID type of your choice.
 
 ```bash
-usage: cazy-little-helper find [-h] -i INPUT_PATH -t ID_TYPE
+usage: find [-h] -i INPUT_PATH -t ID_TYPE
 
 Arguments:
   -h, --help            show this help message and exit
