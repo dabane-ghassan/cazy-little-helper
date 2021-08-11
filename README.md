@@ -40,7 +40,68 @@ pip install cazy-little-helper --upgrade
 
 ## Getting started
 
-- Insert some neat explanations and commands to see how it works.
+### Predict
+```bash
+usage: cazy-little-helper predict [-h] -i INPUT_PATH [-p ID_POS] [-b BIBLIO_ADD] [-m MODEL]
+
+Arguments:
+  -h, --help            show this help message and exit
+  -i INPUT_PATH, --input_path INPUT_PATH
+                        [REQUIRED] The input data file path,a .csv file with a column of article IDs
+  -p ID_POS, --id_pos ID_POS
+                        [OPTIONAL] The index of the ID column in the input file path, default is 0 (first column).
+  -b BIBLIO_ADD, --biblio_add BIBLIO_ADD
+                        [OPTIONAL] The address of the biblio package on the php server, default is http://localhost/Biblio
+  -m MODEL, --model MODEL
+                        [OPTIONAL] The model path to run the predictions, default is the CAZy's little helper already trained model based on Aug 2021 data, '../model/cazy_helper.joblib'
+```
+
+### Create Model
+
+```bash
+usage: cazy-little-helper create [-h] -p OUTPUT_PATH -d DATASET [-b BIBLIO_ADD] [-s VAL_SIZE]
+
+Arguments:
+  -h, --help            show this help message and exit
+  -p OUTPUT_PATH, --output_path OUTPUT_PATH
+                        [REQUIRED] The save path for the new model.
+  -d DATASET, --dataset DATASET
+                        [REQUIRED] The training dataset, a two column .csv file.
+  -b BIBLIO_ADD, --biblio_add BIBLIO_ADD
+                        [OPTIONAL] The address of the biblio package on the php server, default is http://localhost/Biblio
+  -s VAL_SIZE, --val_size VAL_SIZE
+                        [OPTIONAL] The validation dataset size, default is 0.15
+```
+
+- So let's say you're a passionate CAZy researcher, and you want to retrain a new model with new data in order to acquire more accurate confidence scores:
+
+```bash
+mkdir new_model && cd new_model
+wget https://raw.githubusercontent.com/dabane-ghassan/cazy-little-helper/main/training/classifier_train.csv
+```
+
+> Now you can annotate the training dataset with new PMCIDs (only PMCIDs) if available, just adding 1 to the label column if the new article is compatible, 0 otherwise. After this, we can launch the creation of a new model.
+
+```bash
+cazy-little-helper create -p new_model.joblib -d classifier_train.csv
+```
+- And now this new model can be used to make predictions! (by specifying its path using the parameter -m in the predict CLI)
+
+### Find IDs
+ 
+- This last functionality is just *la cerise sur le gâteau*, just input any .csv file with a column of article IDs (PMIDs, PMCIDs or DOIs); preferably a one column .csv file without a header, and it will be converted to the ID type of your choice.
+
+```bash
+usage: cazy-little-helper find [-h] -i INPUT_PATH -t ID_TYPE
+
+Arguments:
+  -h, --help            show this help message and exit
+  -i INPUT_PATH, --input_path INPUT_PATH
+                        [REQUIRED] The input ID file path, a .csv file with a column of article IDs.
+  -t ID_TYPE, --id_type ID_TYPE
+                        [REQUIRED] The type of ID to find, ['PMID', 'PMCID', 'DOI'], uppercase only.
+
+```
 
 ## Under the hood: What is CAZy's little helper?
 
