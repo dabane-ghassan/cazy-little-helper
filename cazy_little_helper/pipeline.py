@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Wed Aug  4 10:54:33 2021
+Pipeline class for predictions.
 
-@author: ghassan
+@author: dabane-ghassan
 """
 from __future__ import absolute_import
 import os
