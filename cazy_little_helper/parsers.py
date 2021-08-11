@@ -60,9 +60,9 @@ input file path, default is 0 (first column).")
         parser.add_argument('-b','--biblio_add',
                             type=str,
                             required=False,
-                            default="http://localhost/Biblio",
+                            default="http://10.1.22.212/Biblio",
                             help="[OPTIONAL] The address of the biblio package \
-on the php server, default is http://localhost/Biblio")
+on the php server, default is http://10.1.22.212/Biblio")
 
         parser.add_argument('-m','--model',
                                 type=str,
@@ -164,9 +164,9 @@ a two column .csv file.")
         parser.add_argument('-b','--biblio_add',
                             type=str,
                             required=False,
-                            default="http://localhost/Biblio",
+                            default="http://10.1.22.212/Biblio",
                             help="[OPTIONAL] The address of the biblio package \
-on the php server, default is http://localhost/Biblio")
+on the php server, default is http://10.1.22.212/Biblio")
 
         parser.add_argument('-s','--val_size',
                             type=str,
