@@ -5,14 +5,14 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name='cazy-little-helper',
-    version='0.1',
+    version='1.0',
     description='A biocuration assistant for the CAZy database.',
     long_description=long_description,
     long_description_content_type="text/markdown",
     url='https://github.com/dabane-ghassan/cazy-little-helper',
     author='dabane-ghassan',
     author_email = 'dabane.ghassan@gmail.com',
-    #download_url = 'https://github.com/dabane-ghassan/dnazip/archive/v0.2.tar.gz',
+    download_url = 'https://github.com/dabane-ghassan/cazy-little-helper/archive/refs/tags/v1.0.tar.gz',
     license='MIT',
     packages=setuptools.find_packages(include=['cazy-little-helper', 'cazy-little-helper.*']),
     classifiers=[
@@ -30,10 +30,12 @@ setuptools.setup(
             'mock >= 4.0.0',
         ]
     },
-    #entry_points={
-    #    'gui_scripts': [
-    #        'dnazip=dnazip.main:main'
-    #    ]
-    #},
+    entry_points={
+        'console_scripts': [
+            'predict=cazy_little_helper.predict:main',
+            'create=cazy_little_helper.create_model:main',
+            'find=cazy_little_helper.find_ids:main',
+        ]
+    },
     python_requires='>=3.6',
 )

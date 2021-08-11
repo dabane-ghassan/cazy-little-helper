@@ -6,8 +6,8 @@ A CLI entry point for the PyPI package, for launching find_ids functionality.
 @author: dabane-ghassan
 """
 from __future__ import absolute_import
-from parsers import Parser
-from toolkit import Toolkit
+from cazy_little_helper.parsers import Parser
+from cazy_little_helper.toolkit import Toolkit
 
 def launch_find( 
     ids_file: str,

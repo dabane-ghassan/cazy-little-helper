@@ -18,8 +18,8 @@ from sklearn.metrics import classification_report
 from sklearn.calibration import CalibratedClassifierCV
 from sklearn.utils import shuffle
 from joblib import dump
-from preprocessor import Preprocessor
-from scraper import Scraper
+from cazy_little_helper.preprocessor import Preprocessor
+from cazy_little_helper.scraper import Scraper
 
 class Model:
     """A class to represent the architecture of CAZy's little helper,

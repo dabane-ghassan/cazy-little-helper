@@ -7,8 +7,8 @@ functionality.
 @author: dabane-ghassan
 """
 from __future__ import absolute_import
-from parsers import Parser
-from model import Model
+from cazy_little_helper.parsers import Parser
+from cazy_little_helper.model import Model
 
 def launch_create_model( 
     path: str,
