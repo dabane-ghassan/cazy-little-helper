@@ -49,14 +49,13 @@ class Scorer:
     def confidence(
         self: object
     ) -> List[float]:
-        """
+        """The main method of the scorer class, predicts the confidence score
+        on new articcles using a given model.
 
         Returns
         -------
         List[float]
-            A list of floats .
+            A list of confidence scores (model predictions).
 
         """
-        
-
         return self.model.predict_proba(self.docs)[:, 1] * 100

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Some tools to clean and scrape the dataset.
+A Toolkit class.
 
-@author: Ghassan
+@author: dabane-ghassan
 """
 from __future__ import absolute_import
 import os
@@ -13,7 +13,13 @@ from metapub.pubmedcentral import get_pmcid_for_otherid
 from metapub.pubmedcentral import get_doi_for_otherid
 
 class Toolkit:
+    """A Toolkit class to wrap some useful functions.
 
+    Attributes
+    ----------
+    None
+
+    """
     @staticmethod
     def is_doi(
         expr: str
@@ -74,7 +80,27 @@ class Toolkit:
         ids_file: str,
         id_type: str
     ) -> str:
+        """This function transforms a list of articles IDs into another type. 
 
+        Parameters
+        ----------
+        ids_file : str
+            The IDs list, a .csv file with only one column wihtout a header.
+        id_type : str
+            The type of ID to search for, one of the following,
+            ['PMID', 'DOI', 'PMCID'].
+
+        Raises
+        ------
+        Exception
+            Stop the process when the specified ID type is not allowed.
+
+        Returns
+        -------
+        str
+            The output file path.
+
+        """
         if id_type == "PMID":
             finder = get_pmid_for_otherid
         elif id_type == "DOI":
