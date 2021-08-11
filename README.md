@@ -17,25 +17,12 @@
 
 ## Installation
 
-- The package can be installed either from pip or from the source code hosted on github.
-
-### With pip
-
-```bash
-pip install cazy-little-helper
-```
-
-### From source
+- From source:
 
 ```bash
 git clone https://github.com/dabane-ghassan/cazy-little-helper.git
 cd cazy-little-helper
 sudo python3 setup.py install
-```
-## Updating
-
-```bash
-pip install cazy-little-helper --upgrade
 ```
 
 ## Getting started
