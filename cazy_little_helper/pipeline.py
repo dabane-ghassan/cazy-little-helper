@@ -16,15 +16,56 @@ from scorer import Scorer
 from toolkit import Toolkit
 
 class Pipeline:
+    """A prediction pipeline class.
 
+    Attributes
+    ----------
+    input_data: str
+        The input data file path for the prediction.
+
+    id_pos: int
+        The position of the ID column in the table, by default the parser will
+        set it to 0, as in the first column.
+
+    output_data: str
+        The output confidence score file path.
+
+    scraper: cazy_little_helper.scraper.Scraper
+        A scraper object.
+
+    preprocessor: cazy_little_helper.preprocessor.Preprocessor
+        A preprocessor object.
+
+    scorer: cazy_little_helper.scorer.Scorer
+        A scorer object (to predict the confidence given a specified model).
+
+    """
     def __init__(
         self: object,
         input_data: str,
         id_pos: int,
         biblio_address: str,
-        model: str,
+        model: str
     ) -> None:
+        """Class constructor.
 
+        Parameters
+        ----------
+        input_data : str
+            The input data file path.
+        id_pos : int
+            The index of the ID column in the input file path.
+        biblio_address : str
+            Bibliograpy tool address on the server.
+        model : str
+            The model that will be used to make prediction.
+
+        Returns
+        -------
+        None
+            A class instance.
+
+        """
         self.input_data = input_data
         self.id_pos = id_pos
         self.output_data = "%s_confidence.csv" % (os.path.splitext(
@@ -36,7 +77,15 @@ class Pipeline:
     def run(
         self: object
     ) -> None:
+        """The main method of the Pipeline class that will run the whole
+        prediction procedure.
 
+        Returns
+        -------
+        None
+            Gives confidence score to new articles based on the trained model.
+
+        """
         print("Reading the file and parsing all available IDs")
         df = pd.read_csv(self.input_data, header=None)
         ids = df[self.id_pos].dropna()

@@ -1,20 +1,37 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Mon Aug  9 10:57:03 2021
+Parser class to wrap the difference parser objects.
 
-@author: ghassandabane
+@author: dabane-ghassan
 """
 from __future__ import absolute_import
 import sys
 from argparse import ArgumentParser, RawTextHelpFormatter
 
 class Parser:
+    """A parser wrapper class.
 
+    Attributes
+    ----------
+    None
+
+    """
     @staticmethod
     def predict(
     ) -> ArgumentParser:
+        """The predict CLI parser.
 
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        ArgumentParser
+            Parser class instance.
+
+        """
         describe= "Welcome to CAZy's little helper ▼(´ᴥ`)▼ !\n\
 The biocuration assistant of the CAZy database, woof woof.\n\
 CAZy's little helper takes a .csv file that contains a list of PMIDS and \
@@ -60,7 +77,18 @@ based on Aug 2021 data, '../model/cazy_helper.joblib'")
     @staticmethod
     def find_ids(
     ) -> ArgumentParser:
+        """The find_ids CLI parser.
 
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        ArgumentParser
+            Parser class instance.
+
+        """
         describe= "Welcome to CAZy's little helper ▼(´ᴥ`)▼ !\n\
 The biocuration assistant of the CAZy database, woof woof.\n\
 This special functionality takes a list of articles IDs and tries to find \
@@ -94,7 +122,18 @@ a .csv file with a column of article IDs")
     @staticmethod
     def create_model(
     ) -> ArgumentParser:
+        """The create_model CLI parser.
 
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        ArgumentParser
+            Parser class instance.
+
+        """
         describe= "Welcome to CAZy's little helper ▼(´ᴥ`)▼ !\n\
 The biocuration assistant of the CAZy database, woof woof.\n\
 This special functionality creates a new model based on a given \
