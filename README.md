@@ -51,7 +51,7 @@ Arguments:
   -p ID_POS, --id_pos ID_POS
                         [OPTIONAL] The index of the ID column in the input file path, default is 0 (first column).
   -b BIBLIO_ADD, --biblio_add BIBLIO_ADD
-                        [OPTIONAL] The address of the biblio package on the php server, default is http://localhost/Biblio
+                        [OPTIONAL] The address of the biblio package on the php server, default is http://10.1.22.212/Biblio
   -m MODEL, --model MODEL
                         [OPTIONAL] The model path to run the predictions, default is the CAZy's little helper already trained model based on Aug 2021 data, '../model/cazy_helper.joblib'
 ```
@@ -68,7 +68,7 @@ Arguments:
   -d DATASET, --dataset DATASET
                         [REQUIRED] The training dataset, a two column .csv file.
   -b BIBLIO_ADD, --biblio_add BIBLIO_ADD
-                        [OPTIONAL] The address of the biblio package on the php server, default is http://localhost/Biblio
+                        [OPTIONAL] The address of the biblio package on the php server, default is http://10.1.22.212/Biblio
   -s VAL_SIZE, --val_size VAL_SIZE
                         [OPTIONAL] The validation dataset size, default is 0.15
 ```
