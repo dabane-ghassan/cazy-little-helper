@@ -69,7 +69,7 @@ wget https://raw.githubusercontent.com/dabane-ghassan/cazy-little-helper/main/tr
 > Now you can annotate the training dataset with new PMCIDs (only PMCIDs) if available, just adding 1 to the label column if the new article is compatible, 0 otherwise. After this, we can launch the creation of a new model.
 
 ```bash
-cazy-little-helper create -p new_model.joblib -d classifier_train.csv
+python3 create.py -p new_model.joblib -d classifier_train.csv
 ```
 - And now this new model can be used to make predictions! (by specifying its path using the parameter -m in the predict CLI)
 
