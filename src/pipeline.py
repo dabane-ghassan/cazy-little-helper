@@ -10,10 +10,10 @@ import os
 import numpy as np
 import pandas as pd
 from metapub.pubmedcentral import get_pmcid_for_otherid
-from cazy_little_helper.scraper import Scraper
-from cazy_little_helper.preprocessor import Preprocessor
-from cazy_little_helper.scorer import Scorer
-from cazy_little_helper.toolkit import Toolkit
+from scraper import Scraper
+from preprocessor import Preprocessor
+from scorer import Scorer
+from toolkit import Toolkit
 
 class Pipeline:
     """A prediction pipeline class.

@@ -7,8 +7,8 @@ little helper.
 @author: dabane-ghassan
 """
 from __future__ import absolute_import
-from cazy_little_helper.parsers import Parser
-from cazy_little_helper.pipeline import Pipeline
+from parsers import Parser
+from pipeline import Pipeline
 
 def launch_pipeline( 
     input_data: str,
