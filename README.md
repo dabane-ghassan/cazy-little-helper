@@ -1,5 +1,6 @@
 # CAZy's little helper
-
+![Python version](https://img.shields.io/badge/python-3.8-blue)
+![Licence](https://img.shields.io/badge/License-MIT-blue.svg)
 <!-- 
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/dnazip-bioinfo?color=green)
 ![PyPI](https://img.shields.io/pypi/v/dnazip-bioinfo?color=green)
